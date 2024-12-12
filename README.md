@@ -2,6 +2,14 @@
 
 \## Question 4 a): Both walks begin at the origin (0, 0) and then diverge as they progress, each with its own unique trajectory despite running from the same code. The walk moves a fixed length in a random direction with each step, and the colour of the path changes with time. Since the walks were generated independently,  the 2 plots I made are very different from each other - with one circling around and ending up close to the origin, and the other straying very far from the origin. This illustrates the stochastic nature of these random walks and how if someone tried to use the same code they could generate very different results
 
+4 b)  what is a random seed and how does it work: when we generate "random numbers" using a computer, they are not truly random- they give you a set sequence of "random" numbers depending an initial input (the seed). The numbers the computer gives you appear random but are actually deterministic based on the seed. The seed is like the starting point for the algorithm, if you use the same seed, you will get the same sequence of numbers. This is very important as it means others can use your code to get the same results that you did at the time.
+
+4 c)
+
+4 d) ![edits to random walk script](https://github.com/user-attachments/assets/1a4ebe22-2ca3-4aa5-b9a4-a14912407bc1)
+
+
+
 
 ## Instructions
 
