@@ -1,6 +1,6 @@
 # Reproducible research: version control and R
 
-\## Question 4 a): Both walks begin at the origin (0, 0) and then diverge as they progress, each with its own unique trajectory despite running from the same code. The walk moves a fixed length in a random direction with each step, and the colour of the path changes with time. Since the walks were generated independently,  the 2 plots I made are very different from each other with one circling around and ending up close to the origin, and the other straying very far from the origin. This illustrates the stochastic nature of these random walks and how if someone tried to use the same code they could generate very different results
+\## Question 4 a): Both walks begin at the origin (0, 0) and then diverge as they progress, each with its own unique trajectory despite running from the same code. The walk moves a fixed length in a random direction with each step, and the colour of the path changes with time. Since the walks were generated independently,  the 2 plots I made are very different from each other - with one circling around and ending up close to the origin, and the other straying very far from the origin. This illustrates the stochastic nature of these random walks and how if someone tried to use the same code they could generate very different results
 
 
 ## Instructions
