@@ -4,9 +4,52 @@
 
 4 b)  what is a random seed and how does it work: when we generate "random numbers" using a computer, they are not truly random- they give you a set sequence of "random" numbers depending an initial input (the seed). The numbers the computer gives you appear random but are actually deterministic based on the seed. The seed is like the starting point for the algorithm, if you use the same seed, you will get the same sequence of numbers. This is very important as it means others can use your code to get the same results that you did at the time.
 
-4 c)
+4 c) Edited file in repo
 
 4 d) ![edits to random walk script](https://github.com/user-attachments/assets/1a4ebe22-2ca3-4aa5-b9a4-a14912407bc1)
+
+5 a) The data has 33 rows and 13 columns
+5 b) Genome length and Virion volume span multiple orders of magnitude, so we can use a log transformaton to help the linear model capture these relationships better than the raw data, where the large calues may skew our results. 
+#log transform the data
+virus_data_log <- virus_data %>%
+  mutate(Log_Genome_length = log(Genome.length..kb.),
+         Log_Virion_volume = log(Virion.volume..nm.nm.nm.)) 
+
+5 c) I found the exponent to be 1.515228 and scaling factor to be 1181.807 using the code below, and these results are the same as those in table 2 of the paper.  with the summary function I found the P value  2.279645e-10 for the exponent and  6.438498e-10 for the scaling factor, which are both far below our significance level of 0.05, so its very unlikely these results are due to chance. 
+#Fit the linear model
+> Virus_plot <- lm(Log_Virion_volume ~  Log_Genome_length, data = virus_data_log)
+> # Extract coefficients
+> intercept <- coef(Virus_plot)[1]  # ln(α)
+> slope <- coef(Virus_plot)[2]      # β
+> # transform intercept back from log to get alpha
+> exp(intercept)
+(Intercept) 
+   1181.807 
+> slope
+Log_Genome_length 
+         1.515228 
+
+5 d) 
+ggplot(virus_data_log, aes(x = Log_Genome_length, y = Log_Virion_volume)) +
+  geom_point(color = "black", size = 3) +  # Scatter points
+  geom_smooth(method = "lm", color = "blue", se = TRUE) +  # Regression line with confidence interval
+  labs(
+    title = "Log-Log Relationship Between Genome Length and Virion Volume",
+    x = "Log(Genome Length kb)",
+    y = "Log(Virion Volume(nm3)"
+  ) +
+  theme_minimal()
+
+  5 e) using the code below, i found the estimated Volume of a 300 kb dsDNA Virus to be 235306564197 nm³ 
+alpha <- 1181.807  
+beta <- 1.515228   
+
+# Genome length of 300 kb
+L <- 300000  # Length in nucleotides
+
+# Calculate the volume
+V <- alpha * (L^beta)
+
 
 
 
