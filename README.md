@@ -8,8 +8,9 @@
 
 4 d) ![edits to random walk script](https://github.com/user-attachments/assets/1a4ebe22-2ca3-4aa5-b9a4-a14912407bc1)
 
-5 a) The data has 33 rows and 13 columns
-5 b) Genome length and Virion volume span multiple orders of magnitude, so we can use a log transformaton to help the linear model capture these relationships better than the raw data, where the large values may skew our results. 
+5 a) using the str() function we can see the data has 33 rows and 13 columns
+
+5 b) Genome length and Virion volume span multiple orders of magnitude, so we can use a log transformaton to help the linear model capture these relationships better than the raw data, in which the large values may skew our results. 
 #log transform the data
 virus_data_log <- virus_data %>%
   mutate(Log_Genome_length = log(Genome.length..kb.),
